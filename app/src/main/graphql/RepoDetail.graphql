@@ -1,0 +1,31 @@
+query RepoDetails($owner: String!, $name: String!){
+  repository(owner: $owner, name: $name) {
+    id
+    name
+    viewerHasStarred
+    stargazerCount
+    createdAt
+    forkingAllowed
+    updatedAt
+    diskUsage
+    owner{
+      login
+    }
+    languages(first: 10){
+      nodes{
+          name
+      }
+    }
+    readme:object(expression: "master:README") {
+      ... on Blob {
+        text
+      }
+    }
+
+    readmemd:object(expression: "master:README.md") {
+      ... on Blob {
+        text
+      }
+    }
+  }
+}

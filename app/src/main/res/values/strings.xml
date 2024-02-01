@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Zasilkovna interview task</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="repo_list_title">List of all public repositories</string>
+    <string name="local_repo_list_title">List locally stored repositories</string>
+    <string name="repository_detail">Repository Detail</string>
+    <string name="show_localy_stored_repositories">Show locally stored repositories</string>
+    <string name="confirm">Confirm</string>
+    <string name="successfuly_removed_repository_from_database">Successfully removed repository from database</string>
+    <string name="error_at_removing_repository_from_database">Error at removing repository from database</string>
+    <string name="succesfuly_saved_repository_to_database">Successfully saved repository to database</string>
+    <string name="error_at_saving_repository_to_database">Error at saving repository to database</string>
+</resources>
