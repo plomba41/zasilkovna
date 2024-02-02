@@ -13,7 +13,7 @@ import com.plomba.zasilkovna.jobtask.common.Resource
 import com.plomba.zasilkovna.jobtask.domain.usecase.http.AddStarUseCase
 import com.plomba.zasilkovna.jobtask.domain.usecase.db.RemoveRepoLocalUseCase
 import com.plomba.zasilkovna.jobtask.domain.usecase.http.RemoveStarUseCase
-import com.plomba.zasilkovna.jobtask.domain.usecase.http.RepoDetailsUseCase
+import com.plomba.zasilkovna.jobtask.domain.usecase.http.HttpRepoDetailsUseCase
 import com.plomba.zasilkovna.jobtask.domain.usecase.db.RetrieveRepoLocalUseCase
 import com.plomba.zasilkovna.jobtask.domain.usecase.db.SaveRepoLocalUseCase
 import com.plomba.zasilkovna.jobtask.domain.usecase.http.StarUseCaseAbstract
@@ -24,7 +24,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RepoDetailViewModel @Inject constructor(
-    private val repoDetailsUseCase: RepoDetailsUseCase,
+    private val repoDetailsUseCase: HttpRepoDetailsUseCase,
     private val addStarUseCase: AddStarUseCase,
     private val removeStarUseCase: RemoveStarUseCase,
     private val saveRepoLocalUseCase: SaveRepoLocalUseCase,

@@ -7,11 +7,11 @@ import com.plomba.zasilkovna.jobtask.domain.usecase.BaseUseCase
 import javax.inject.Inject
 
 
-class RepoListUseCase @Inject constructor(
+class HttpRepoListUseCase @Inject constructor(
     private val repository: GitHubRepository
-): BaseUseCase<List<RepoListItem>, Int>(){
+): HttpUseCase<List<RepoListItem>, Int>(){
     
-    override suspend fun performUseCase(arg: Int?): List<RepoListItem>? {
+    override suspend fun performHttpUseCase(arg: Int?): List<RepoListItem>? {
         if (arg != null) {
             return repository.getAllRepos(arg).map { it.toRepoListItem() }
         } else {

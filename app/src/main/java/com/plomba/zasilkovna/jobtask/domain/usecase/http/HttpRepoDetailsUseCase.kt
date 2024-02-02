@@ -6,7 +6,7 @@ import com.plomba.zasilkovna.jobtask.domain.model.RepoDetail
 import com.plomba.zasilkovna.jobtask.domain.repository.GitHubRepository
 import javax.inject.Inject
 
-class RepoDetailsUseCase @Inject constructor(
+class HttpRepoDetailsUseCase @Inject constructor(
     private val repository: GitHubRepository
 ): HttpUseCase<RepoDetail, OwnerNameVariable>(){
 

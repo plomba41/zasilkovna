@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.plomba.zasilkovna.jobtask.common.Constants
 import com.plomba.zasilkovna.jobtask.common.Resource
 import com.plomba.zasilkovna.jobtask.domain.model.RepoListItem
-import com.plomba.zasilkovna.jobtask.domain.usecase.http.RepoListUseCase
+import com.plomba.zasilkovna.jobtask.domain.usecase.http.HttpRepoListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RepoListViewModel @Inject constructor(
-    private val repoListUseCase: RepoListUseCase
+    private val repoListUseCase: HttpRepoListUseCase
 )
     : ViewModel() {
 

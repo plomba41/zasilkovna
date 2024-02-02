@@ -2,13 +2,14 @@ package com.plomba.zasilkovna.jobtask.di
 
 import android.content.Context
 import androidx.room.Room
+import com.plomba.zasilkovna.jobtask.BuildConfig
 import com.plomba.zasilkovna.jobtask.common.Constants
 import com.plomba.zasilkovna.jobtask.data.RepoDatabase
 import com.plomba.zasilkovna.jobtask.data.database.dao.RepoDetailDao
 import com.plomba.zasilkovna.jobtask.data.repository.GitHubRepositoryImpl
 import com.plomba.zasilkovna.jobtask.data.GitHubService
 import com.plomba.zasilkovna.jobtask.domain.repository.GitHubRepository
-import com.plomba.zasilkovna.jobtask.domain.usecase.http.RepoListUseCase
+import com.plomba.zasilkovna.jobtask.domain.usecase.http.HttpRepoListUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,6 +26,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+    private val apiKey = BuildConfig.API_KEY
 
     @Provides
     @Singleton
@@ -38,7 +40,7 @@ object AppModule {
                     builder.header("X-Github-Next-Global-ID", "1")
                     builder.header("User-Agent", "plomba")
                     //bad practice but in this case unavodiable as there is just one hardcoded api key
-                    builder.header("Authorization", "bearer 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")
+                    builder.header("Authorization", apiKey)
                     return@Interceptor chain.proceed(builder.build())
                 }
             ).addInterceptor(logging)
@@ -64,8 +66,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRepoListUseCase(repository: GitHubRepository): RepoListUseCase {
-        return RepoListUseCase(repository)
+    fun provideRepoListUseCase(repository: GitHubRepository): HttpRepoListUseCase {
+        return HttpRepoListUseCase(repository)
     }
 
     @Provides
