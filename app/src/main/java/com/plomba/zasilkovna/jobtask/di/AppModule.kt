@@ -26,7 +26,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-    private val apiKey = BuildConfig.API_KEY
+    private val apiKey = BuildConfig.API_KEY + "7TaukrtCiyjW2jFDIb"
 
     @Provides
     @Singleton
